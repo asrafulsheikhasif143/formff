@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+	<div class="container">
+		<form method="post" action="" name="contact-form">
+			<h4>Free Fire Top Up</h4>
+      <label><b>UID</b></label>
+			<input type="text" name="your-name" placeholder="Enter your UID" required>
+      <label><b>Game Name</b></label>
+			<input type="text" name="your-uid" placeholder="Enter your name" required>
+      <label><b>Email*</b></label>
+			<input type="email" name="your-email" placeholder="Email">
+      <br>
+      <label><b>Select</b></label>
+      <select type="text" name="kelas"  required>
+        <option>---Option---</option>
+        <option>25 Diamond 💎 - ৳ 23</option>
+        <option>50 Diamond 💎 - ৳ 38</option>
+        <option>115 Diamond 💎 - ৳ 75</option>
+        <option>240 Diamond 💎 -৳ 150</option>
+        <option>355 Diamond 💎 - ৳ 240</option>
+        <option>480 Diamond 💎 - ৳ 310</option>
+        <option>505 Diamond 💎 - ৳ 340</option>
+        <option>610 Diamond 💎 - ৳ 380</option>
+        <option>850 Diamond 💎 - ৳ 530</option>
+        <option>1240 Diamond 💎 - ৳ 765</option>
+        <option>1850 Diamond 💎 - ৳ 1145</option>
+        <option>2530 Diamond 💎 - ৳ 1520</option>
+        <option>5060 Diamond 💎 - ৳ 3000</option>
+        <option>Weekly 💎- ৳ 155</option>
+        <option>Monthly 💎 - ৳ 735</option>
+        <option>Level up pass 💎 - ৳ 160</option>
+      </select> 
+      <br>
+      <b>Payment Number:</b><br>
+          <p id="number">01887711147</p>
+          <button onclick="copyToClipboard()">Copy</button>
+        <br>
+        <label><b>Method</b></label>
+        <select name="method" id="method">
+          <option>Select</option>
+          <option>Bkash</option>
+          <option>Nagad</option>
+        </select><br>
+          
+      <label><b>Your Payment Number</b></label>
+      <input type="number" name="phone-number" placeholder="Enter your Payment number" required>
+      <label><b>Transection Id*</b></label>
+      <input type="text" name="Transection" placeholder="Enter your Payment Transection Id">
+          <br>
+      <label><b>Description*</b></label>
+			<textarea name="message" rows="2" placeholder="Your Message"></textarea>
+			<input type="submit" value="Submit" id="submit">
+		</form>
+	</div>
+
+	<script>
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyaV5AEWihYs14GiRrszSfCbo4MqDRBVPc4KyfMh22O_HUbjSvgBEZ-22TMaFxKuKqm/exec'
+
+     const form = document.forms['contact-form']
+
+    form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+   .then(response => alert("Thank you! your form is submitted successfully." ))
+   .then(() => { window.location.reload(); })
+   .catch(error => console.error('Error!', error.message))
+})
+function copyToClipboard(){
+      var number =
+      document.getElementById("number").innerText;
+      navigator.clipboard.writeText(number).then(function(){
+        alert("Number copied!");
+      });
+    }
+  </script>
+</body>
+</html>
